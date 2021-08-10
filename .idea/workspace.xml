@@ -26,7 +26,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea11ef2f-bb5f-4e42-b45c-28e12d6cb7e4" name="Default Changelist" comment="" />
+    <list default="true" id="ea11ef2f-bb5f-4e42-b45c-28e12d6cb7e4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,6 +71,7 @@
       <option name="presentableId" value="Default" />
       <updated>1628322124045</updated>
       <workItem from="1628322133794" duration="2664000" />
+      <workItem from="1628572621752" duration="313000" />
     </task>
     <task id="LOCAL-00001" summary="添加鼠标点击火花效果">
       <created>1628322191966</created>
@@ -98,7 +101,21 @@
       <option name="project" value="LOCAL" />
       <updated>1628349684401</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add 阅读更多下划线">
+      <created>1628572673197</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1628572673198</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add my css">
+      <created>1628572693913</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1628572693913</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,13 +143,16 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="添加鼠标点击火花效果" />
     <MESSAGE value="增加右键效果" />
     <MESSAGE value="增加鼠标火花效果" />
     <MESSAGE value="增加自己图标色彩" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加自己图标色彩" />
+    <MESSAGE value="add 阅读更多下划线" />
+    <MESSAGE value="add my css" />
+    <option name="LAST_COMMIT_MESSAGE" value="add my css" />
   </component>
   <component name="WindowStateProjectService">
     <state x="13" y="102" width="1335" height="624" key="DiffContextDialog" timestamp="1628342548212">
@@ -143,9 +163,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="631" y="248" width="619" height="327" key="MultipleFileMergeDialog/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1628322359376" />
-    <state x="261" y="80" key="Vcs.Push.Dialog.v2" timestamp="1628349690368">
+    <state x="261" y="80" key="Vcs.Push.Dialog.v2" timestamp="1628572705392">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="261" y="80" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1628349690368" />
+    <state x="261" y="80" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1628572705392" />
   </component>
 </project>

@@ -37,7 +37,8 @@ or:  https://volantis.vercel.app
 
 See examples: https://volantis.js.org/examples/
 
-Add your blog to examples page: https://github.com/volantis-x/examples/issues/
+My blog : https://sizaif.com
+
 
 ## Feedback
 
