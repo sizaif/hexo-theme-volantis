@@ -14,9 +14,11 @@
      uploadImage: function(file) {
       const formData = new FormData();
       formData.append('image', file);
+      const token = "0f10884e1e0a0831d1c6a272977cf5ce";
       return fetch('<%= theme.comments.waline.imageHosting %>', {
       	method: 'POST',
-      	body: formData
+      	body: formData,
+        headers: {'Authorization': token}
       }).then(resp => resp.json()).then(resp => resp.data.url);
    },
   }));
