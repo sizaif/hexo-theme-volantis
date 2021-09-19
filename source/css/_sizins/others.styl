@@ -2,7 +2,7 @@
 // link-effects
 // 阅读更多的样式
 //===========================
-.link-fx-1 {
+.readmore {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -83,3 +83,11 @@
     }
   }
 }
+
+
+// 重写图片大小：评论框头像
+.fix-avatar-imgError > div > img.error
+  min-height: 100%
+  min-width: 100%
+  &:after
+    display: none
