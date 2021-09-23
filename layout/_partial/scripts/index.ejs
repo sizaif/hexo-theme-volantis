@@ -1,5 +1,6 @@
 <%- partial('global') %>
 <script>
+  top.location!=self.location&&(top.location=self.location);
   <% if (theme.plugins.fontawesome) { %>
   volantis.css("<%- theme.plugins.fontawesome %>");
   <% } %>
@@ -103,10 +104,14 @@
 
 <%- partial('toc') %>
 
-<%- partial('content-visibility-scroll-fix') %>
-
 <% if (theme.structured_data && theme.structured_data.enable) { %>
   <%- structured_data() %>
+<% } %>
+
+<%- partial('../sizink') %>
+
+<% if (theme.InconfontFlag) { %>
+  <%- js(theme.cdn.map.js.iconfontInkss) %>
 <% } %>
 
 <!-- more -->

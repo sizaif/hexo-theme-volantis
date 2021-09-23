@@ -130,4 +130,6 @@
 <% if (page.comments == undefined || page.comments != false) { %>
   <%- partial('../_plugins/comments/index') %>
 <% } %>
-
+<% if(page.background) { %>
+  <div class="cus-article-bkg" style="background-image: url(<%- page.background %>)"></div>
+<% } %>

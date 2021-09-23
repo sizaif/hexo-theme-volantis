@@ -1,24 +1,24 @@
 const RightMenu = (() => {
   const fn = {},
-    _rightMenuWrapper = document.getElementById('rightmenu-wrapper'),
-    _rightMenuContent = document.getElementById('rightmenu-content'),
-    _menuDarkBtn = document.getElementById('menuDarkBtn'),
-    _printHtml = document.getElementById('printHtml'),
-    _menuMusic = document.getElementById('menuMusic'),
-    _readingModel = document.getElementById('readingModel'),
-    _readBkg = document.getElementById('read_bkg');
+      _rightMenuWrapper = document.getElementById('rightmenu-wrapper'),
+      _rightMenuContent = document.getElementById('rightmenu-content'),
+      _menuDarkBtn = document.getElementById('menuDarkBtn'),
+      _printHtml = document.getElementById('printHtml'),
+      _menuMusic = document.getElementById('menuMusic'),
+      _readingModel = document.getElementById('readingModel'),
+      _readBkg = document.getElementById('read_bkg');
 
   const
-    _menuLoad = document.querySelectorAll('.menuLoad-Content'),
-    _menuOption = document.querySelector('.menu-Option'),
-    _copyText = document.querySelector('.menu-Option[data-fn-type="copyText"]'),
-    _copyPaste = document.querySelector('.menu-Option[data-fn-type="copyPaste"]'),
-    _copySelect = document.querySelector('.menu-Option[data-fn-type="copySelect"]'),
-    _copyCut = document.querySelector('.menu-Option[data-fn-type="copyCut"]'),
-    _copyHref = document.querySelector('.menu-Option[data-fn-type="copyHref"]'),
-    _copySrc = document.querySelector('.menu-Option[data-fn-type="copySrc"]'),
-    _copyImg = document.querySelector('.menu-Option[data-fn-type="copyImg"]'),
-    _openTab = document.querySelector('.menu-Option[data-fn-type="openTab"]');
+      _menuLoad = document.querySelectorAll('.menuLoad-Content'),
+      _menuOption = document.querySelector('.menu-Option'),
+      _copyText = document.querySelector('.menu-Option[data-fn-type="copyText"]'),
+      _copyPaste = document.querySelector('.menu-Option[data-fn-type="copyPaste"]'),
+      _copySelect = document.querySelector('.menu-Option[data-fn-type="copySelect"]'),
+      _copyCut = document.querySelector('.menu-Option[data-fn-type="copyCut"]'),
+      _copyHref = document.querySelector('.menu-Option[data-fn-type="copyHref"]'),
+      _copySrc = document.querySelector('.menu-Option[data-fn-type="copySrc"]'),
+      _copyImg = document.querySelector('.menu-Option[data-fn-type="copyImg"]'),
+      _openTab = document.querySelector('.menu-Option[data-fn-type="openTab"]');
 
   const urlRegx = /^((https|http)?:\/\/)+[A-Za-z0-9]+\.[A-Za-z0-9]+[\/=\?%\-&_~`@[\]\':+!]*([^<>\"\"])*$/;
 
@@ -55,7 +55,7 @@ const RightMenu = (() => {
     document.body.addEventListener('click', fn.hideMenu);
   }
 
-  // 菜单位置设定 
+  // 菜单位置设定
   fn.popMenu = (event) => {
     let mouseClientX = event.clientX;
     let mouseClientY = event.clientY;
@@ -72,7 +72,7 @@ const RightMenu = (() => {
       let showLeft = mouseClientX + menuWidth > screenWidth ? mouseClientX - menuWidth + 10 : mouseClientX;
       let showTop = mouseClientY + menuHeight > screenHeight ? mouseClientY - menuHeight + 10 : mouseClientY;
       showTop = mouseClientY + menuHeight > screenHeight && showTop < menuHeight && mouseClientY < menuHeight ?
-        showTop + (screenHeight - menuHeight - showTop - 10) : showTop;
+          showTop + (screenHeight - menuHeight - showTop - 10) : showTop;
       _rightMenuWrapper.style.left = showLeft + "px";
       _rightMenuWrapper.style.top = showTop + "px";
       _rightMenuWrapper.style.zIndex = '2147483648';
@@ -85,18 +85,18 @@ const RightMenu = (() => {
     return false;
   }
 
-  // 菜单项设置 
+  // 菜单项设置
   fn.setMenuItem = (event) => {
     let optionFlag = false;
     const eventTarget = event.target;
     const selectText = window.getSelection().toString();
-    fn.visible(_openTab, false); // 隐藏新标签页打开 
+    fn.visible(_openTab, false); // 隐藏新标签页打开
 
-    // 判断是否是输入框 
+    // 判断是否是输入框
     if (eventTarget.tagName.toLowerCase() === 'input' || eventTarget.tagName.toLowerCase() === 'textarea') {
       const inputStr = eventTarget.value;
 
-      // 全选 
+      // 全选
       if (inputStr.length > 0) {
         fn.visible(_copySelect);
         _copySelect.onclick = () => {
@@ -107,7 +107,7 @@ const RightMenu = (() => {
         fn.visible(_copySelect, false);
       }
 
-      // 剪切 
+      // 剪切
       if (selectText) {
         fn.visible(_copyCut);
         _copyCut.onclick = () => {
@@ -123,9 +123,9 @@ const RightMenu = (() => {
         fn.visible(_copyCut, false);
       }
 
-      // 粘贴 
+      // 粘贴
       fn.readClipboard().then(text => {
-        // 如果剪切板存在内容 
+        // 如果剪切板存在内容
         if (!!text) {
           fn.visible(_copyPaste);
           _copyPaste.onclick = () => {
@@ -144,7 +144,7 @@ const RightMenu = (() => {
       fn.visible(_copyCut, false);
     }
 
-    // 新标签打开链接 
+    // 新标签打开链接
     const eventHref = eventTarget.href;
     if (!!eventHref && urlRegx.test(eventHref)) {
       optionFlag = true;
@@ -160,7 +160,7 @@ const RightMenu = (() => {
       fn.visible(_copyHref, false);
     }
 
-    // 新标签打开图片 & 复制图片链接 
+    // 新标签打开图片 & 复制图片链接
     const eventSrc = eventTarget.currentSrc;
     if (!!eventSrc && urlRegx.test(eventSrc)) {
       optionFlag = true;
@@ -178,7 +178,7 @@ const RightMenu = (() => {
       fn.visible(_copySrc, false);
     }
 
-    // 复制图片 
+    // 复制图片
     if (!!eventSrc && urlRegx.test(eventSrc) && eventSrc.trimEnd().endsWith('.png')) {
       optionFlag = true;
       fn.visible(_copyImg);
@@ -198,7 +198,7 @@ const RightMenu = (() => {
       fn.visible(_copyImg, false);
     }
 
-    // 复制文本 
+    // 复制文本
     if (selectText) {
       optionFlag = true;
       fn.visible(_copyText);
@@ -210,7 +210,7 @@ const RightMenu = (() => {
       fn.visible(_copyText, false);
     }
 
-    // 打印 
+    // 打印
     const _printArticle = document.querySelector('#post.article') || null;
     const pathName = window.location.pathname;
     if (!!_printArticle) {
@@ -263,38 +263,38 @@ const RightMenu = (() => {
     }
   }
 
-  // 隐藏菜单 
+  // 隐藏菜单
   fn.hideMenu = () => {
     fn.visible(_rightMenuWrapper, false);
   }
 
-  // 复制字符串 
+  // 复制字符串
   fn.copyString = (str) => {
     VolantisApp.writeClipText(str)
-      .then(() => {
-        if (volantis.messageCopyright && volantis.messageCopyright.enable && volantis.messageRightMenu.enable) {
-          volantis.message(volantis.messageCopyright.title, volantis.messageCopyright.message, {
-            icon: volantis.messageCopyright.icon
-          });
-        }
-      }).catch(e => {
-        if (volantis.messageRightMenu.enable) volantis.message('系统提示', e, {
-          icon: volantis.rightMenu.faicon + ' fa-exclamation-square red'
-        });
-      })
+        .then(() => {
+          if (volantis.messageCopyright && volantis.messageCopyright.enable && volantis.messageRightMenu.enable) {
+            volantis.message(volantis.messageCopyright.title, volantis.messageCopyright.message, {
+              icon: volantis.messageCopyright.icon
+            });
+          }
+        }).catch(e => {
+      if (volantis.messageRightMenu.enable) volantis.message('系统提示', e, {
+        icon: volantis.rightMenu.faicon + ' fa-exclamation-square red'
+      });
+    })
   }
 
-  // 写入文本到剪切板 
+  // 写入文本到剪切板
   fn.writeClipText = (str) => {
     try {
       return navigator.clipboard
-        .writeText(str)
-        .then(() => {
-          return Promise.resolve()
-        })
-        .catch(err => {
-          return Promise.reject(err)
-        })
+          .writeText(str)
+          .then(() => {
+            return Promise.resolve()
+          })
+          .catch(err => {
+            return Promise.reject(err)
+          })
     } catch (e) {
       const input = document.createElement('input');
       input.setAttribute('readonly', 'readonly');
@@ -312,32 +312,32 @@ const RightMenu = (() => {
       } catch (e) {
         document.body.removeChild(input);
         return Promise.reject(
-          '当前浏览器不支持复制功能，请检查更新或更换其他浏览器操作!'
+            '当前浏览器不支持复制功能，请检查更新或更换其他浏览器操作!'
         )
       }
     }
   }
 
-  // 写入图片到剪切板 
+  // 写入图片到剪切板
   fn.writeClipImg = async function (event, success, error) {
     const eventSrc = volantis.rightMenu.customPicUrl === true ?
-      event.target.currentSrc.replace(volantis.rightMenu.picOld, volantis.rightMenu.picNew) :
-      event.target.currentSrc;
+        event.target.currentSrc.replace(volantis.rightMenu.picOld, volantis.rightMenu.picNew) :
+        event.target.currentSrc;
     const parentElement = event.target.parentElement;
     try {
       const data = await fetch(eventSrc);
       const blob = await data.blob();
       await navigator.clipboard
-        .write([
-          new ClipboardItem({
-            [blob.type]: blob
-          })
-        ]).then(() => {
-          success(true);
-        }, (e) => {
-          console.error('图片复制失败：', e);
-          error(e);
-        });
+          .write([
+            new ClipboardItem({
+              [blob.type]: blob
+            })
+          ]).then(() => {
+            success(true);
+          }, (e) => {
+            console.error('图片复制失败：', e);
+            error(e);
+          });
     } catch (e) {
       const dom = document;
       try {
@@ -362,26 +362,26 @@ const RightMenu = (() => {
     }
   }
 
-  // 请求读取剪切板 
+  // 请求读取剪切板
   fn.readClipboard = async () => {
     const result = await navigator.permissions.query({
       name: 'clipboard-read'
     });
     if (result.state === 'granted' || result.state === 'prompt') {
-      // 修改为 .read()  可以获取剪切板中的文字/图片 
-      // 返回的是 ClipboardItem 
+      // 修改为 .read()  可以获取剪切板中的文字/图片
+      // 返回的是 ClipboardItem
       return navigator.clipboard
-        .readText()
-        .then(text => text)
-        .catch(err => Promise.reject(err));
+          .readText()
+          .then(text => text)
+          .catch(err => Promise.reject(err));
     }
     return Promise.reject(result);
   }
 
-  // 粘贴文本 
+  // 粘贴文本
   fn.insertAtCaret = (elemt, value) => {
     const startPos = elemt.selectionStart,
-      endPos = elemt.selectionEnd;
+        endPos = elemt.selectionEnd;
     if (document.selection) {
       elemt.focus();
       var sel = document.selection.createRange();
@@ -402,7 +402,7 @@ const RightMenu = (() => {
     }
   }
 
-  // 执行打印页面 
+  // 执行打印页面
   fn.printHtml = () => {
     if (volantis.isReadModel) fn.readingModel();
     if (volantis.rightMenu.defaultStyles === true) {

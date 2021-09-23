@@ -1,7 +1,7 @@
 // 异步加载的暗黑模式 暗黑模式 CSS 变量
 
 async_dark()
-  // tag plugin from stellar 
+  // tag plugin from stellar
   --block-hover: mix($c-block-dark, $c-text-dark, 95)
   --text-p1: $c-text-dark
   --text-p3: mix($c-text-light, $c-site-bg-light, 60)
@@ -35,9 +35,9 @@ async_dark()
   // Custom Files
   for $injects_darkVar in hexo-config('injects.darkVar')
     @import $injects_darkVar;
-  // eg:
-  // body
-  //   --color-site-body: blue !important
+// eg:
+// body
+//   --color-site-body: blue !important
 
 @media (prefers-color-scheme: dark)
   :root
@@ -45,6 +45,8 @@ async_dark()
   :root:not([color-scheme])
     async_dark()
     @import 'dark_plugins'
+    @import '../_sizins-plugins/dark';
 [color-scheme='dark']
   async_dark()
   @import 'dark_plugins'
+  @import '../_sizins-plugins/dark';

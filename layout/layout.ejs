@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
-<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-<script type="text/javascript" src="/js/fireworks.js"></script>
 <html lang="<%- config.language %>">
   <%- partial('_partial/scripts/_ctrl') _%>
   <%- partial('_partial/head') _%>
@@ -15,7 +12,7 @@
           <%- partial('_plugins/pjax/pdata') %>
         </div>
         <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
-        <a id="s-top" class="fas fa-arrow-up fa-fw" href="/" onclick="return false;" title="top"></a>
+        <a id="s-top" class="fal fa-arrow-up fa-fw" href="/" onclick="return false;" title="top"></a>
       </div>
     </div>
     <div>
@@ -23,6 +20,7 @@
       <% if (theme.plugins.pjax.enable){ %>
         <%- partial('_plugins/pjax/index') %>
       <% } %>
+      <div id="BKG" class="content-in"></div>
     </div>
   <!-- Custom Files bodyEnd begin-->
   <%- volantis_inject('bodyEnd') %>
